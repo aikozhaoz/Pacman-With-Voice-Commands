@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 squares[i].classList.add('pac-dot');
             }else if(layout[i]===1){
                 squares[i].classList.add('wall');
+            }else if(layout[i]===2){
+                squares[i].classList.add('ghost-lair');
             }else if(layout[i]===3){
                 squares[i].classList.add('power-pellet');
             }
@@ -81,26 +83,36 @@ document.addEventListener('DOMContentLoaded', ()=>{
         squares[pacmanCurrentLocation].classList.remove('pac-man');
         switch(e.keyCode){
             case 37:
+                // check if pacman is moving to the wall now
+                // check if pacman is moving to the ghost lair
                 // check if pacman is at the leftmost edge now
-                if(pacmanCurrentLocation%width !==0){
+                if((pacmanCurrentLocation%width !==0)&&(!squares[pacmanCurrentLocation-1].classList.contains('wall'))&&(!squares[pacmanCurrentLocation-1].classList.contains('ghost-lair'))){
                     pacmanCurrentLocation-=1;
+                }
+                // check if pacman is at the left exit now
+                if((pacmanCurrentLocation-1)===363){
+                    pacmanCurrentLocation = 391
                 }
                 break;
             case 39:
                 // check if pacman is at the rightmost edge now
-                if((pacmanCurrentLocation%width)<(width-1)){
+                if(((pacmanCurrentLocation%width)<(width-1))&&(!squares[pacmanCurrentLocation+1].classList.contains('wall'))&&(!squares[pacmanCurrentLocation+1].classList.contains('ghost-lair'))){
                     pacmanCurrentLocation+=1;
+                }
+                // check if pacman is at the left exit now
+                if((pacmanCurrentLocation+1)===392){
+                    pacmanCurrentLocation = 364;
                 }
                 break;
             case 38:
                 // check if pacman is at the top edge now
-                if((pacmanCurrentLocation-28)>=0){
+                if(((pacmanCurrentLocation-28)>=0)&&(!squares[pacmanCurrentLocation-width].classList.contains('wall'))&&(!squares[pacmanCurrentLocation-width].classList.contains('wall'))){
                     pacmanCurrentLocation-=width;
                 }
                 break;
             case 40:
                 // check if pacman is at the bottom edge now
-                if((pacmanCurrentLocation/width)<(width-1)){
+                if(((pacmanCurrentLocation/width)<(width-1))&&(!squares[pacmanCurrentLocation+width].classList.contains('wall'))&&(!squares[pacmanCurrentLocation+width].classList.contains('wall'))){
                     pacmanCurrentLocation+=width;
                 }
                 break;   
