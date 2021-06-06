@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     const grid = document.querySelector('.grid');
-    const score = document.getElementById('score');
+    const scoreboard = document.getElementById('score');
     // 28 * 28 = 784 squares
     const width = 28;
-
+    const dotEatenPoints = 10;
+    let score = 0;
     // Declare a variable called squares which stores all the squares
     const squares = [];
 
@@ -119,12 +120,42 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
         // Style pac man's new location
         squares[pacmanCurrentLocation].classList.add('pac-man');
+        // Style the game when the pac man eat pac dot
+        dotEaten();
     }
 
     document.addEventListener("keyup", movePacman);
 
     // Game Logic
-    // Pac dot is eaten by pac man
+    // Case when Pac dot is eaten by pac man
+    // When pacman moves to a position that contains pac dot, now that div will have 2 classes: pac-dot and pac-man
+    function dotEaten(){
+        if (squares[pacmanCurrentLocation].classList.contains('pac-dot')){
+            score+=dotEatenPoints;
+            scoreboard.innerHTML = score;
+            // When the pac dot is eaten, we remove the pac-dot class from the div
+            squares[pacmanCurrentLocation].classList.remove('pac-dot');
+        }
+    }
+    
+    // Create Ghost object
+    class Ghost{
+        constructor(className, startIndex, speed){
+            this.className = className;
+            this.startIndex = startIndex;
+            this.speed = speed;
+            this.currentIndex = startIndex;
+            this.timerID=NaN;
+        }
+    }
+
+    // Make Ghosts using the Ghost class
+    ghosts=[
+        new Ghost('blinky', 348, 250),
+        new Ghost('pinky', 376, 400),
+        new Ghost('inky', 351, 300),
+        new Ghost('clyde', 379, 500)
+    ]
 
 
 })
