@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // Declare a variable called squares which stores all the squares
     const squares = [];
 
-    // Game Architecture:
+    // Game Board Architecture:
     // 0: pac dot
     // 1: wall
     // 2: ghost lair
@@ -158,4 +158,39 @@ document.addEventListener('DOMContentLoaded', ()=>{
     ]
 
 
+    // Place the ghosts onto the grid
+    ghosts.forEach(ghost => {
+        squares[ghost.currentIndex].classList.add(ghost.className);
+        squares[ghost.currentIndex].classList.add("ghost");
+    });
+
+    // Move ghosts randomly
+    ghosts.forEach(ghost => {moveGhost(ghost)})
+    
+    // Build move ghosts function
+    function moveGhost(ghost){
+        // Directions: left, right, down, up
+        const directions = [-1,+1,width,-width];
+        // Shuffle the index of directions from 0 to 4 (exclusive the 4), so technically the expected output will be 0,1,2,3
+        let direction = directions[Math.floor(Math.random() * directions.length)];
+        // Note:
+        // The setInterval() method calls a function or evaluates an expression at specified intervals (in milliseconds).
+        // The setInterval() method will continue calling the function until clearInterval() is called, or the window is closed.
+        // ID value returned by setInterval() is used as the parameter for the clearInterval() method.
+        ghost.timerID = setInterval(function(){
+            // If the next square is empty(NO wall and NO any other ghost), then the current ghost can go there
+            // else we have to find a new direction to try
+            if((!squares[ghost.currentIndex+direction].classList.contains("wall"))&&(!squares[ghost.currentIndex+direction].classList.contains("ghost"))){
+                // If the empty condition is met, then we are going to move our current ghost.
+                // Clear out the current location's class
+                squares[ghost.currentIndex].classList.remove(ghost.className, "ghost","scared-ghost");
+                // Add its class to its new location
+                ghost.currentIndex+=direction;
+                squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
+            }else{
+                direction = directions[Math.floor(Math.random() * directions.length)];
+            }
+            
+        },ghost.speed);
+    }
 })
