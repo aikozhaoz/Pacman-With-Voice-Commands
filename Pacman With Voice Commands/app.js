@@ -78,8 +78,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let pacmanCurrentLocation = 490;
     // Style pacman based on its location
     squares[pacmanCurrentLocation].classList.add('pac-man');
+    // Set starting position facing towards right
+    squares[pacmanCurrentLocation].classList.add('pac-man-right');
 
     document.addEventListener("keyup", movePacman);
+
+    // Remove all pacman for restarting purposes
+    function removePacman(){
+        squares[pacmanCurrentLocation].classList.remove('pac-man');
+        squares[pacmanCurrentLocation].classList.remove('pac-man-left');
+        squares[pacmanCurrentLocation].classList.remove('pac-man-right');
+        squares[pacmanCurrentLocation].classList.remove('pac-man-up');
+        squares[pacmanCurrentLocation].classList.remove('pac-man-down');
+    }
 
     // Using switch to move pac-man
     // left = 37
@@ -88,19 +99,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // down = 40
     // I call all the game logic related functions under this function because all the game logic should happen when pac man is moving
     function movePacman(e){
+        removePacman();
         squares[pacmanCurrentLocation].classList.remove('pac-man');
         switch(e.keyCode){
             case 37:
                 // check if pacman is moving to the wall now
                 // check if pacman is moving to the ghost lair
                 // check if pacman is at the leftmost edge now
-                if((pacmanCurrentLocation%width !==0)&&(!squares[pacmanCurrentLocation-1].classList.contains('wall'))&&(!squares[pacmanCurrentLocation-1].classList.contains('ghost-lair'))){
+                if((pacmanCurrentLocation%width !==0)
+                    &&(!squares[pacmanCurrentLocation-1].classList.contains('wall'))
+                    &&(!squares[pacmanCurrentLocation-1].classList.contains('ghost-lair'))){
                     pacmanCurrentLocation-=1;
                 }
                 // check if pacman is at the left exit now
                 if((pacmanCurrentLocation-1)===363){
                     pacmanCurrentLocation = 391
                 }
+
+                squares[currentLocation].classList.add("pac-man");
+                squares[currentLocation].classList.add("pac-man-left");
                 break;
             case 39:
                 // check if pacman is at the rightmost edge now
@@ -111,18 +128,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 if((pacmanCurrentLocation+1)===392){
                     pacmanCurrentLocation = 364;
                 }
+                squares[currentLocation].classList.add("pac-man");
+                squares[currentLocation].classList.add("pac-man-right");
                 break;
             case 38:
                 // check if pacman is at the top edge now
                 if(((pacmanCurrentLocation-28)>=0)&&(!squares[pacmanCurrentLocation-width].classList.contains('wall'))&&(!squares[pacmanCurrentLocation-width].classList.contains('ghost-lair'))){
                     pacmanCurrentLocation-=width;
                 }
+                squares[currentLocation].classList.add("pac-man");
+                squares[currentLocation].classList.add("pac-man-up");
                 break;
             case 40:
                 // check if pacman is at the bottom edge now
                 if(((pacmanCurrentLocation/width)<(width-1))&&(!squares[pacmanCurrentLocation+width].classList.contains('wall'))&&(!squares[pacmanCurrentLocation+width].classList.contains('ghost-lair'))){
                     pacmanCurrentLocation+=width;
                 }
+                squares[currentLocation].classList.add("pac-man");
+                squares[currentLocation].classList.add("pac-man-down");
                 break;   
         }
         // Style pac man's new location

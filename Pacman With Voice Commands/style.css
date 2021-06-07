@@ -99,6 +99,7 @@ h4{
     background-image: url("images/scared-ghost.png");
 }
 
+/* Style pac dots. I use "." as pac dots. Change the font size to make it look like pac dots. */
 .pac-dot{
     font-size: 40px;
     color: white;
@@ -114,11 +115,31 @@ h4{
 
 /* Style .power pellets */
 .power-pellet{
-    background-image: radial-gradient(white 55%, transparent 5%);
+    background-image: radial-gradient(white 50%, transparent 5%);
     z-index: -1;
 }
 
-.pac-man{
-    background-color: yellow;
+/* Style pac-man */
+/* The pacman pic I find is facing right. So when pac man move towards right we use the image directly */
+.pac-man-right{
+    background-image: url('images/pacman.png');  
     border-radius: 10px;
+}
+
+.pac-man-left{
+    background-image: url('images/pacman.png');  
+    border-radius: 10px;
+    transform: rotate(180deg);
+}
+
+.pac-man-up{
+    background-image: url('images/pacman.png');  
+    border-radius: 10px;
+    transform: rotate(90deg);
+}
+
+.pac-man-down{
+    background-image: url('images/pacman.png');  
+    border-radius: 10px;
+    transform: rotate(-90deg);
 }
