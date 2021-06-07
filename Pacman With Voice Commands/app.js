@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     pacmanCurrentLocation = 391
                 }
 
-                squares[currentLocation].classList.add("pac-man");
-                squares[currentLocation].classList.add("pac-man-left");
+                squares[pacmanCurrentLocation].classList.add("pac-man");
+                squares[pacmanCurrentLocation].classList.add("pac-man-left");
                 break;
             case 39:
                 // check if pacman is at the rightmost edge now
@@ -128,24 +128,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 if((pacmanCurrentLocation+1)===392){
                     pacmanCurrentLocation = 364;
                 }
-                squares[currentLocation].classList.add("pac-man");
-                squares[currentLocation].classList.add("pac-man-right");
+                squares[pacmanCurrentLocation].classList.add("pac-man");
+                squares[pacmanCurrentLocation].classList.add("pac-man-right");
                 break;
             case 38:
                 // check if pacman is at the top edge now
                 if(((pacmanCurrentLocation-28)>=0)&&(!squares[pacmanCurrentLocation-width].classList.contains('wall'))&&(!squares[pacmanCurrentLocation-width].classList.contains('ghost-lair'))){
                     pacmanCurrentLocation-=width;
                 }
-                squares[currentLocation].classList.add("pac-man");
-                squares[currentLocation].classList.add("pac-man-up");
+                squares[pacmanCurrentLocation].classList.add("pac-man");
+                squares[pacmanCurrentLocation].classList.add("pac-man-up");
                 break;
             case 40:
                 // check if pacman is at the bottom edge now
                 if(((pacmanCurrentLocation/width)<(width-1))&&(!squares[pacmanCurrentLocation+width].classList.contains('wall'))&&(!squares[pacmanCurrentLocation+width].classList.contains('ghost-lair'))){
                     pacmanCurrentLocation+=width;
                 }
-                squares[currentLocation].classList.add("pac-man");
-                squares[currentLocation].classList.add("pac-man-down");
+                squares[pacmanCurrentLocation].classList.add("pac-man");
+                squares[pacmanCurrentLocation].classList.add("pac-man-down");
                 break;   
         }
         // Style pac man's new location
