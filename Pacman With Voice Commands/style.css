@@ -1,4 +1,31 @@
+/* Class selector use "."
+ID selector use "#"
+CSS selector specificity: parent child child's child ... */
+
+/* z-index: The z-index property specifies the stack order of an element.
+An element with greater stack order is always in front of an element with a lower stack order. */
+
+/* justify-content: The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally). */
+
+.score-display{
+    text-align: center;
+}
+/* Set background to black */
+body {
+    background-color:#181A25;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style the container which contains the game */
+.container{
+    margin-top: -5px;
+}
+
+/* Set the grid/game board background to black */
 .grid{
+    z-index: -2;
+    background-size: contain;
     display: flex;
     flex-wrap: wrap;
     width: 560px;
@@ -6,52 +33,92 @@
     border: solid black;
 }
 
+/* Set each equare to 20px x 20 px */
+/* Element whose class name is "grid", and also has a div child */
 .grid div{
     width: 20px;
     height: 20px;
 }
 
-.pac-dot{
-    background-color: green;
-    border: 5px solid white;
-    box-sizing: border-box;
+#start-button{
+    height: 25px;
+    width: 80px;
+    background-color: red;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #DDF9C1;
+    text-align: center;
+    margin-left: 240px;
+    margin-top: 40px;
 }
 
+/* Style instruction container */
+.instruction{
+    width: 560px;
+    height: 560px;
+    margin-left: 30px;
+}
+
+/* Style instructions */
+h3{
+    font-family: 'IBM Plex Mono', monospace;
+    color: #DDF9C1;
+    text-align: left;
+    font-size: 20px;
+}
+
+h4{
+    font-family: 'IBM Plex Mono', monospace;
+    color: #DDF9C1;
+    text-align: left;
+    font-size: 15px; 
+}
+
+/* Style all ghosts based on their name */
+.blinky{
+    background-image: url("images/blinky.png");
+    z-index: +2;
+}
+
+.pinky{
+    background-image: url("images/pinky.png");
+    z-index: +2;
+}
+
+.inky{
+    background-image: url("images/inky.png");
+    z-index: +2;
+}
+
+.clyde{
+    background-image: url("images/clyde.png");
+    z-index: +2;
+}
+
+/* Style scared ghosts */
+.scared-ghost{
+    background-image: url("images/scared-ghost.png");
+}
+
+.pac-dot{
+    font-size: 40px;
+    color: white;
+    margin: 0px;
+    text-align: center;
+    line-height: 0px;
+}
+
+/* Style wall */
 .wall{
     background-color:  blue;
 }
 
+/* Style .power pellets */
 .power-pellet{
-    background-color: green;
-    border-radius: 10px;
+    background-image: radial-gradient(white 55%, transparent 5%);
+    z-index: -1;
 }
 
 .pac-man{
     background-color: yellow;
     border-radius: 10px;
-}
-
-.blinky{
-    background-color: red;
-    border: 0px;
-}
-
-.pinky{
-    background-color: pink;
-    border: 0px;
-}
-
-.inky{
-    background-color: cyan;
-    border: 0px;
-}
-
-.clyde{
-    background-color: orange;
-    border: 0px;
-}
-
-.scared-ghost{
-    background-color: aquamarine;
-    border: 0px;
 }

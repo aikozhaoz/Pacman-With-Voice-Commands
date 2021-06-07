@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             // Style the pac-dot squares
             if(layout[i]===0){
                 squares[i].classList.add('pac-dot');
+                squares[i].innerHTML = ".";
             }else if(layout[i]===1){
                 squares[i].classList.add('wall');
             }else if(layout[i]===2){
