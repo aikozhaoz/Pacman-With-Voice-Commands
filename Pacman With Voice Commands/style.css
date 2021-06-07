@@ -135,11 +135,11 @@ h4{
 .pac-man-up{
     background-image: url('images/pacman.png');  
     border-radius: 10px;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 
 .pac-man-down{
     background-image: url('images/pacman.png');  
     border-radius: 10px;
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
 }
