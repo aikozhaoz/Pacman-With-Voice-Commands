@@ -7,6 +7,7 @@
 
 ## How to open the file and play
 Download code as a zip file.
+Open the file with VSCode
 Paste your **Alan AI SDK Key** on line **420** under **app.js** file.
 ![Where to paste you Alan SDK Key](Pacman%20With%20Voice%20Commands//images/alan-key.png)
 
