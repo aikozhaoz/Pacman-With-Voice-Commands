@@ -1,5 +1,5 @@
 # Pacman-With-Voice-Commands
-![Game Template Image](./Pacman With Voice Commands/images/game-template.png)
+![Game Template Image](.img/game-template.png)
 
 ## Requirement
 
