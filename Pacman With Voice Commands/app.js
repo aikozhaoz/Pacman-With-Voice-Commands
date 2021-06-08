@@ -287,7 +287,7 @@ function powerPelletEaten(){
     }
 }
 
-// After power pellet is eaten, all ghosts are scared for a short period of time. In this case
+// After power pellet is eaten, all ghosts are scared for a short period of time.
 // Then all ghost will go back to normal.
 // Here, I am changing all ghosts back from scared mode to normal.
 function normalizedGhosts(){
