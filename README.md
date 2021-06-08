@@ -1,5 +1,5 @@
 # Pacman-With-Voice-Commands
-![Game Template Image](.img/game-template.png)
+![Game Template Image](Pacman%20With%20Voice%20Commands/images/game-template.png)
 
 ## Requirement
 
@@ -8,7 +8,7 @@
 ## How to open the file and play
 Download code as a zip file.
 Paste your **Alan AI SDK Key** on line **420** under **app.js** file.
-![Where to paste you Alan SDK Key](./images/alan-key.png)
+![Where to paste you Alan SDK Key](Pacman%20With%20Voice%20Commands//images/alan-key.png)
 
 - There are two ways:
 1. Double click **index.html** and click *Copy Path*. Then paste the paste in your favorite browser.
