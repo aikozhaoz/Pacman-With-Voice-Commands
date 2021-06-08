@@ -40,7 +40,13 @@ body {
     height: 20px;
 }
 
+/* Animated start button. Creating the click effect. */
 #start-button{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px #999;
     height: 25px;
     width: 80px;
     background-color: red;
@@ -49,6 +55,17 @@ body {
     text-align: center;
     margin-left: 240px;
     margin-top: 40px;
+}
+
+#start-button:hover {
+    background-color:
+    green
+}
+
+#start-button:active {
+  background-color: green;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 /* Style instruction container */
