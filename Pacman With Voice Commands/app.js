@@ -109,7 +109,7 @@ squares[pacmanCurrentLocation].classList.add('pac-man-right');
 
 
 
-// Remove all pacman for restarting purposes
+// Remove all pacman for moving purposes
 function removePacman(){
     squares[pacmanCurrentLocation].classList.remove('pac-man');
     squares[pacmanCurrentLocation].classList.remove('pac-man-left');
